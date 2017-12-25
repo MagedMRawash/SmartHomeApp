@@ -1,0 +1,17 @@
+{
+  "name": "smartsystemserver",
+  "version": "1.0.0",
+  "description": "this is part of Smart System App as server for its data ",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "jsmodbus": "^2.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
