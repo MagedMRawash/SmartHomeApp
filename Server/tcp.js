@@ -1,19 +1,4 @@
-// const net = require('net');
-// const client = net.createConnection({ port: 502 }, () => {
-//   //'connect' listener
-//   console.log('connected to server!');
-//   client.write('000100000006010300000008');
-// });
-// client.on('data', (data) => {
-//   console.log(data.toString());
-//   client.end();
-// });
-// client.on('end', () => {
-//   console.log('disconnected from server');
-// });
-
-
-var net = require('net');
+var net = require('jsmodbus');
 
 var HOST = '127.0.0.1';
 var PORT = 502;
