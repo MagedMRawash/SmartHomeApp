@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6" *ngFor="let unit of units">
+      <ngx-status-card  *ngIf="[unitsType.lamp].includes(unit.type)"  [title]="unit.title" type="primary" [on]="unit.status" (clicked)="updateStatus($event,unit)">
+        <i class="nb-lightbulb"></i>
+      </ngx-status-card>
+      <ngx-slider *ngIf="unit.type === unitsType.analog" [(value)]="unit.value" [min]="unit.min" [max]="unit.max" [status]="unit.status" (clicked)="updateStatus($event, unit)" (change)="updateValue($event,unit)"  ></ngx-slider>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
+      <ngx-temperature></ngx-temperature>
+    </div>
+</div>  
+<div class="row">
+   
+</div>  
+

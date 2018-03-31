@@ -1,17 +1,15 @@
 const express = require('express')
-const servant = require('./servant.layer')
+const data = require('./data')
 
 const app = express()
 
-// const serv = new servant()
 
-app.get('/open', (req, res) => {
-    console.log("send modbus ")
-    console.log( servant )
-    servant.lightOn(0)
-
+app.get('/', (req, res) => {
     res.send('Hello World!')
+})
 
+app.get('/data', (req, res) => {
+    res.json(data)
 })
 
 

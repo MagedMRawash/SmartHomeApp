@@ -1,0 +1,24 @@
+<nb-card size="large">
+  <nb-tabset fullWidth>
+    <nb-tab tabTitle="slider">
+
+      <div class="slider-container">
+        <ngx-slider-dragger [(value)]="value" (power)="powerSwitch($event)" (valueChange)="valueChange($event)"
+                                 [min]="min" [max]="max" [disableArcColor]="colors.layoutBg"
+                                 [fillColors]="colors.temperature">
+
+          <div class="slider-value-container"  [ngClass]="{ 'off': !sliderOff }">
+            <div class="value slider">
+              {{ !sliderOff ? '--' : (value | ngxRound) }}
+            </div>
+            <div class="desc">
+              Celsius
+            </div>
+          </div>
+        </ngx-slider-dragger>
+      </div>
+    </nb-tab>
+</nb-tabset>
+</nb-card>
+
+

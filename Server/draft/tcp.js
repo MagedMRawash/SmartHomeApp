@@ -1,6 +1,6 @@
 var net = require('jsmodbus');
 
-var HOST = '127.0.0.1';
+var HOST = '169.254.184.84';
 var PORT = 502;
 
 var client = new net.Socket();
