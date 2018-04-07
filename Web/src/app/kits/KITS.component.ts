@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { MENU_ITEMS } from '../pages/pages-menu';
-
+import { SideMenuService } from '../pages/side-menu.service';
+ 
 @Component({
   selector: 'ngx-kits',
   template: `
@@ -11,6 +11,6 @@ import { MENU_ITEMS } from '../pages/pages-menu';
   `,
 })
 export class KitsComponent {
-
-  menu = MENU_ITEMS;
+  constructor( private sidemenu : SideMenuService ) {}
+  menu = this.sidemenu.MENU_ITEMS;
 }

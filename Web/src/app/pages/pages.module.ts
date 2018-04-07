@@ -8,6 +8,7 @@ import { ThemeModule } from '../@theme/theme.module';
 
 import { RoomComponent } from './room/room.component';
 import { DashboardModule } from '../kits/dashboard/dashboard.module';
+import { SideMenuService } from './side-menu.service';
 
 const routes: Routes = [
   {
@@ -30,5 +31,6 @@ const routes: Routes = [
     DashboardModule
   ],
   declarations: [PagesComponent, RoomComponent],
+  providers: [SideMenuService],
 })
 export class PagesModule { }

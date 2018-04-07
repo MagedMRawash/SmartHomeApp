@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { rooms } from '../../@core/data/boot-data.service';
+import { BootDataService } from '../../@core/data/boot-data.service';
 import { unitsType } from '../../@core/defines';
 
 
@@ -17,12 +17,12 @@ export class RoomComponent implements OnInit {
   units: any[] // :units[]
   value: any;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private roomService : BootDataService ) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this.room = rooms[this.id]
+      this.room = this.roomService.data[this.id]
       this.units = this.room.units
 
 

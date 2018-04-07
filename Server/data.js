@@ -109,9 +109,9 @@ let joinRooms = rooms.map((room) => {
     return room
 })
 
-console.log(
-    JSON.stringify(joinRooms)
-);
+// console.log(
+//     JSON.stringify(joinRooms)
+// );
 
 module.exports = {
     homeConfig,
