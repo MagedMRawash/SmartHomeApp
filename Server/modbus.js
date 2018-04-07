@@ -26,7 +26,8 @@ client.connectTCP(config.host, { port: config.port }).then((suc) => {
 
 
 function getDevice(device) { 
-    return client.readCoils(device, 1)
+//  for x   return client.readDiscreteInputs(device, 1)
+    // for y   return client.readCoils(device, 1)
 }
 
 

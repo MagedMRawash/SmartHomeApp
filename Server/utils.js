@@ -27,6 +27,9 @@ function parseAddress(address) {
         case 'y':
             return 1280 + number
             break;
+        case 'x':
+            return 1024+ number
+            break;
 
         default:
             return address
