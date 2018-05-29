@@ -33,7 +33,7 @@ export class SideMenuService {
       title: 'Rooms',
       icon: 'nb-keypad',
       link: '/pages/room',
-      children: this.getMenuRooms(this.dataService.data)
+      children: this.getMenuRooms(this.dataService.rooms)
       
     }, {
       title: 'FEATURES',

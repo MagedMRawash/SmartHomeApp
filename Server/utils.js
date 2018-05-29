@@ -22,13 +22,12 @@ function getAddressValue(address) {
 
 function parseAddress(address) {
     let { type, number } = getAddressValue(address) || "defulte"
-
     switch (type) {
         case 'y':
             return 1280 + number
             break;
         case 'x':
-            return 1024+ number
+            return 1024 + number
             break;
 
         default:
@@ -37,7 +36,21 @@ function parseAddress(address) {
     }
 
 }
+ 
+
+// this function convert value from string to is real value 
+// if number return number else convert it to boolean 
+function getValue(value) {
+    console.log(value);
+    if (!(parseFloat(value).toString() === 'NaN')) {
+        return parseFloat(value)
+    } else {
+        return value == 'true' ? true : false
+    }
+}
+ 
 
 module.exports = {
-    parseAddress
+    parseAddress,
+    getValue
 }

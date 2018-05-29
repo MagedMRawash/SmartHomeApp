@@ -1,10 +1,10 @@
 <div class="row">
   <ng-container *ngFor="let unit of units; let indx = index">
-    <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6" *ngIf="[unitsType.lamp].includes(unit.type)">
+    <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6" *ngIf="[unitsType.digital].includes(unit.type)">
       <ngx-status-card [title]="unit.title" type="primary" [on]="unit.status" (clicked)="updateStatus($event,unit)">
         <i class="nb-lightbulb"></i>
       </ngx-status-card>
-    </div>
+    </div> 
 
     <hr  class="col-xxxl-12 col-xxl-12  col-md-12" *ngIf="indx != 0 && units[indx-1].type != unit.type">
 

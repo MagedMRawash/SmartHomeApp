@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BootDataService } from '../../@core/data/boot-data.service';
 import { unitsType } from '../../@core/defines';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
@@ -22,13 +24,11 @@ export class RoomComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this.room = this.roomService.data[this.id]
+      this.room = this.roomService.rooms[this.id]
       this.units = this.room.units
 
-
-
       this.units.sort((a, b) => {
-        const sort = [unitsType.lamp, unitsType.motion, unitsType.analog]
+        const sort = [unitsType.digital, unitsType.motion, unitsType.analog]
         a = sort.indexOf(a.type)
         b = sort.indexOf(b.type)
         return a - b
@@ -37,13 +37,18 @@ export class RoomComponent implements OnInit {
     });
   }
 
-  updateStatus(event,unit) {
-    console.log(unit.id);
-    console.log(event);
+  updateStatus(status,unit) {
+    console.log(unit)
+    this.roomService.setCoil(unit.plcSlot,status).subscribe((res)=>{
+      console.log(res);
+    })
   }
 
   updateValue(event,unit) {
     console.log(unit.id);
+    this.roomService.getCoil(unit.plcSlot).subscribe((res)=>{
+      console.log(res);
+    })
       }
 
   ngOnDestroy() {

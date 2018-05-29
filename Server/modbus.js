@@ -25,15 +25,29 @@ client.connectTCP(config.host, { port: config.port }).then((suc) => {
 // }, 1000);
 
 
-function getDevice(device) { 
-//  for x   return client.readDiscreteInputs(device, 1)
-    // for y   return client.readCoils(device, 1)
+function getDevice(device,pinType) {
+    console.log(pinType);
+    
+    switch (pinType) {
+        case 'y':
+        return client.readCoils( device, 1)
+            break;
+        case 'x':
+        return client.readDiscreteInputs(device, 1)
+            
+            break;
+        default:
+        return console.error("not defined pin symble ");
+            break;
+    } 
+    //  for x   
+    // for y   
 }
 
 
 function setDevice(device, value) {
     console.log(device);
-    console.log(typeof value);
+    console.log( value);
     return client.writeCoil(device, value)
 }
 

@@ -1,6 +1,6 @@
 
 let unitsType = {
-    lamp: 'lamp',
+    digital: 'digital',
     // motion: 'motion',
     analog: 'analog'
 }
@@ -8,10 +8,10 @@ let unitsType = {
 
 let modes = [{
     title: 'reading',
-    units: [{ room: 0, unit: 1, status: 1 }, { room: 0, unit: 0, status: 0 }]
+    units: [{ room: 0, unit: 0, status: 1 }, { room: 0, unit: 4, status: 1 }]
 }, {
     title: 'sleeping',
-    units: [{ room: 0, unit: 1, status: 0 }, { room: 0, unit: 0, status: 0 }]
+    units: [{ room: 0, unit: 0, status: 0 }, { room: 0, unit: 4, status: 0 }]
 }
 ]
 
@@ -19,24 +19,36 @@ let units = [
     { // interface 
         title: "Light",
         id: 0,
-        type: unitsType.lamp,
+        type: unitsType.digital,
         address: '52',
         plcSlot: 'y1'
     }, {
-        title: "motion",
+        title: "Shutter",
         id: 1,
-        type: unitsType.lamp,
+        type: unitsType.digital,
         address: '98',
         plcSlot: 'y3'
-    }, {
-        title: "analog",
+    },{
+        title: "Alarm",
         id: 2,
+        type: unitsType.digital,
+        address: '98',
+        plcSlot: 'y0'
+    }, {
+        title: "AC",
+        id: 3,
         type: unitsType.analog,
         address: '96',
-        plcSlot: 'y2',
+        plcSlot: 'y5',
         min: 0,
         max: 100,
-
+    },
+    { 
+        title: "Light sec",
+        id: 4,
+        type: unitsType.digital,
+        address: '52',
+        plcSlot: 'y2'
     }
 ]
 
@@ -50,7 +62,7 @@ const rooms = [
         title: "living room",
         id: 0 // must be uniq
         // we need to find more convintions names instead of units
-        , units: [0, 1, 2, 1]
+        , units: [0, 1, 2, 3]
 
     },
     {
@@ -113,9 +125,18 @@ let joinRooms = rooms.map((room) => {
 //     JSON.stringify(joinRooms)
 // );
 
-module.exports = {
+module.exports.data = {
     homeConfig,
     rooms,
     units,
     modes
 }
+
+
+module.exports.utils = { 
+    getRoom,
+    getStatus,
+    getUnit
+}
+
+
